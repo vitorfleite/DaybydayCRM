@@ -54,7 +54,7 @@ return [
     |
     */
 
-    'from' => ['address' => 'hello@example.com', 'name' => 'Daybyday Crm'],
+    'from' => ['address' => 'hello@example.com', 'name' => 'Smart Driving Labs Brasil'],
     'no_reply_mail' => "noreply@exmaple.com",
 
     /*
