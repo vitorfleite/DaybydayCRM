@@ -29,11 +29,11 @@ class StoreClientRequest extends FormRequest
             'vat' => 'max:12',
             'email' => 'required',
             'address' => '',
-            'zipcode' => 'max:6',
+            'zipcode' => 'max:9',
             'city' => '',
-            'primary_number' => 'max:10',
-            'secondary_number' => 'max:10',
-            'industry_id' => 'required',
+            'primary_number' => 'max:15',
+            'secondary_number' => 'max:15',
+            'industry' => '',
             'company_type' => '',
             'user_id' => 'required'
         ];

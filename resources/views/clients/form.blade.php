@@ -32,7 +32,7 @@
         {!! Form::label('secondary_number', __('Secondary number'). ':', ['class' => 'control-label thin-weight']) !!}
         {!! 
             Form::text('secondary_number',  
-            null, 
+            isset($data['phone']) ? $data['phone'] : null,
             ['class' => 'form-control']) 
         !!}
     </div>

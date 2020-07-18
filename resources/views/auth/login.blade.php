@@ -12,7 +12,7 @@
                             <div class="inner-addon right-addon">
                                 <div class="col-md-12 input-group-lg">
                                     <i class="fa fa-user" aria-hidden="true"></i>
-                                    <input type="email" class="form-control" style="border-radius: 4px; box-shadow:0px 2px 4px rgba(0,0,0,0.18); padding-right:40px; " name="email" value="{{ old('email') }}" placeholder="{{ __('') }}">
+                                    <input type="email" class="form-control" style="border-radius: 4px; box-shadow:0px 2px 4px rgba(0,0,0,0.18); padding-right:40px; " name="email" value="{{ old('email') }}" placeholder="{{ __('E-Mail Address') }}">
 
                                 </div>
                                 </div>
@@ -46,7 +46,7 @@
                                     </button>
                                 </div>
                                 <div class="col-md-6 col-md-offset-2" style="padding-left: 60px;">
-                                    <a class="btn btn-link" href="{{ url('/password/reset') }}" style="color:#333; margin-top:8px;">{{ __('Forgot your password?') }}</a>
+                                    <a class="btn btn-link" href="{{ url('/password/reset') }}" style="color:#333; margin-top:8px;">{{ __('Forgot Your Password?') }}</a>
                                 </div>
                             </div>
                             <div class="col-md-12">

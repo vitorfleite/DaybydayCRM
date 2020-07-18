@@ -62,9 +62,11 @@
     <?php
     $data = Session::get('data');
     ?>
-<h1>Create Client</h1>
+<h1>{{ __('Create Client') }}</h1>
 <hr>
-    {!! Form::open([
+    
+    <!--
+        {!! Form::open([
             'url' => '/clients/create/cvrapi'
 
             ]) !!}
@@ -89,6 +91,7 @@
     </div>
     </div>
     <hr>
+        -->
 
     {!!Form::close()!!}
 
