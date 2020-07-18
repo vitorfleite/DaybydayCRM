@@ -728,7 +728,7 @@ if (typeof jQuery === 'undefined') {
       var $this   = $(this)
       var data    = $this.data('bs.collapse')
       var options = $.extend({}, Collapse.DEFAULTS, $this.data(), typeof option == 'object' && option)
-      
+
       if (!data && options.toggle && /show|hide/.test(options)) options.toggle = false
       if (!data) $this.data('bs.collapse', (data = new Collapse(this, options)))
       if (typeof option == 'string') data[option]()

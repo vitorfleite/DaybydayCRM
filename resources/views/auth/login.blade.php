@@ -12,7 +12,7 @@
                             <div class="inner-addon right-addon">
                                 <div class="col-md-12 input-group-lg">
                                     <i class="fa fa-user" aria-hidden="true"></i>
-                                    <input type="email" class="form-control" style="border-radius: 4px; box-shadow:0px 2px 4px rgba(0,0,0,0.18); padding-right:40px; " name="email" value="{{ old('email') }}" placeholder="E-mail address">
+                                    <input type="email" class="form-control" style="border-radius: 4px; box-shadow:0px 2px 4px rgba(0,0,0,0.18); padding-right:40px; " name="email" value="{{ old('email') }}" placeholder="{{ __('') }}">
 
                                 </div>
                                 </div>
@@ -22,32 +22,31 @@
                             <div class="inner-addon right-addon">
                                 <div class="col-md-12 input-group-lg">
                                 <i class="fa fa-lock" aria-hidden="true"></i>
-                                    <input type="password" class="form-control"  style="border-radius: 4px; box-shadow:0px 2px 4px rgba(0,0,0,0.18);" name="password" placeholder="Password">
+                                    <input type="password" class="form-control"  style="border-radius: 4px; box-shadow:0px 2px 4px rgba(0,0,0,0.18);" name="password" placeholder="{{ __('Password') }}">
 
                                    
                                 </div>
                             </div>
                         </div>
-                            <div class="form-group">
+                            {{-- <div class="form-group">
                                 <div class="col-md-12">
                                     <div class="checkbox">
                                         <label style="font-weight: 300; color:#333;">
-                                            <input type="checkbox" name="remember"> Remember Me
+                                            <input type="checkbox" name="remember"> Lembrar-me 
                                         </label>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
 
                             <div class="form-group">
                                 <div class="col-md-12">
                                 
                                     <button type="submit" class="btn btn-success btn-lg btn-block" style="border-radius: 2px; box-shadow: 0px 2px 4px rgba(0,0,0,0.18);   background: #536be2; border: none;">
-                                        <i class="fa fa-btn fa-sign-in"></i>Login
+                                        <i class="fa fa-btn fa-sign-in"></i>{{ __('Login') }}
                                     </button>
                                 </div>
                                 <div class="col-md-6 col-md-offset-2" style="padding-left: 60px;">
-                                    <a class="btn btn-link" href="{{ url('/password/reset') }}" style="color:#333; margin-top:8px;">Forgot Your
-                                        Password?</a>
+                                    <a class="btn btn-link" href="{{ url('/password/reset') }}" style="color:#333; margin-top:8px;">{{ __('Forgot your password?') }}</a>
                                 </div>
                             </div>
                             <div class="col-md-12">
