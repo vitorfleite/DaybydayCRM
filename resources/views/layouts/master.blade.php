@@ -25,6 +25,21 @@
         }
     </script>
     <script src="https://js.stripe.com/v3/"></script>
+    <style>
+            .nav-tabs > li.active {
+                transition: all 0.3s;
+                background: #242939;
+                color: #ffffff;
+                border-radius: 0.25rem;
+                text-decoration: none;
+            }
+            .nav-link {
+                color: #555;
+            }
+            .nav-link:hover{
+                color: #555;
+            }
+    </style>
     @stack('style')
 </head>
 <body>
@@ -207,8 +222,10 @@
 <script type="text/javascript" src="{{ URL::asset('js/jquery.atwho.min.js') }}"></script>
 <script type="text/javascript" src="{{ URL::asset('js/summernote.min.js') }}"></script>
 <script type="text/javascript" src="{{ URL::asset('js/jquery-ui-sortable.min.js') }}"></script>
+<script type="text/javascript" src="{{ URL::asset('js/jquery-ui.min.js') }}"></script>
 <script type="text/javascript" src="{{ URL::asset('js/bootstrap-tour-standalone.min.js') }}"></script>
 <script type="text/javascript" src="{{ URL::asset('js/picker.js') }}"></script>
+
 
 @if(App::getLocale() == "dk")
 <script>
