@@ -104,6 +104,20 @@
                     </a>
                 @endif
             </div>
+
+            <a href="#inventory" class=" list-group-item" data-toggle="collapse" data-parent="#MainMenu"><i
+                        class="fa fa-folder-o sidebar-icon"></i><span id="menu-txt">{{ __('Inventory Control') }}</span>
+                <i class="icon ion-md-arrow-dropup arrow-side sidebar-arrow"></i></a>
+            <div class="collapse" id="inventory">
+                <a href="{{ route('leads.unqualified')}}" class="list-group-item childlist"> <i
+                            class="bullet-point"><span></span></i> {{ __('All Inventory') }}</a>
+                @if(Entrust::can('lead-create'))
+                    <a href="{{ route('items.create')}}"
+                       class="list-group-item childlist"> <i class="bullet-point"><span></span></i> {{ __('New Item') }}
+                    </a>
+                @endif
+            </div>
+
             @if(Entrust::can('calendar-view'))
                 <a href="#appointments" class="list-group-item" data-toggle="collapse" data-parent="#MainMenu"><i
                             class="fa fa-calendar sidebar-icon"></i><span id="menu-txt">{{ __('Appointments') }}</span>

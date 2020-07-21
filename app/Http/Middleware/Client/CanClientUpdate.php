@@ -16,7 +16,7 @@ class CanClientUpdate
     public function handle($request, Closure $next)
     {
         if (!auth()->user()->can('client-update')) {
-            Session()->flash('flash_message_warning', __("You don't have permission to update a user"));
+            Session()->flash('flash_message_warning', __("Você não tem permissão para atualizar um cliente"));
             return redirect()->route('clients.index');
         }
         return $next($request);

@@ -18,7 +18,7 @@ class CanLeadUpdateStatus
     public function handle($request, Closure $next)
     {
         if (!auth()->user()->can('lead-update-status')) {
-            Session()->flash('flash_message_warning', __("You don't have the right permission for this action"));
+            Session()->flash('flash_message_warning', __("Você não tem permissão para esta ação"));
             return redirect()->back();
         }
 
