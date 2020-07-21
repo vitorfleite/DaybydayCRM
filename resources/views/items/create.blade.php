@@ -1,6 +1,9 @@
 @extends('layouts.master')
+
 @section('content')
+
 @push('scripts')
+
     <script>
         $(document).ready(function () {
             $('[data-toggle="tooltip"]').tooltip(); //Tooltip on icons top
@@ -56,11 +59,12 @@
                 return keyValue ? keyValue[2] : null;
             }
         });
-    </script>
+        </script>
+
 @endpush
 
 <?php
-$data = Session::get('data');
+    $data = Session::get('data');
 ?>
 <h1>{{ __('Create item') }}</h1> 
 
