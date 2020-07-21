@@ -50,7 +50,7 @@
         {!! 
             Form::text('vat',
             isset($data['vat']) ?$data['vat'] : null,
-            ['class' => 'form-control']) 
+            array('class' => 'form-control')) 
         !!}
     </div>
 

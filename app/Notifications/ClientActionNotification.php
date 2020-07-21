@@ -69,7 +69,7 @@ class ClientActionNotification extends Notification
                 ]);
                 break;
             case 'updated_assign':
-                $text = __(':username assigned :company to you', [
+                $text = __(':username atribuiu a empresa :company para você', [
                     'company' => $this->client->company_name,
                     'username' => Auth()->user()->name
                 ]);

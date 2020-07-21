@@ -64,6 +64,25 @@ Route::group(['middleware' => ['auth']], function () {
 
 
     /**
+     * Inventory Manager
+     */
+    Route::group(['prefix' => 'items'], function () {
+        Route::get('/data', 'ItemsController@anyData')->name('items.data');
+        Route::get('/taskdata/{external_id}', 'ItemsController@taskDataTable')->name('clients.taskDataTable');
+        Route::get('/projectdata/{external_id}', 'ItemsController@projectDataTable')->name('clients.projectDataTable');
+        Route::get('/leaddata/{external_id}', 'ItemsController@leadDataTable')->name('clients.leadDataTable');
+        Route::get('/invoicedata/{external_id}', 'ItemsController@invoiceDataTable')->name('clients.invoiceDataTable');
+        Route::post('/create/cvrapi', 'ItemsController@cvrapiStart');
+        Route::post('/upload/{external_id}', 'DocumentsController@upload')->name('document.upload');
+        Route::patch('/updateassign/{external_id}', 'ItemsController@updateAssign');
+        Route::post('/updateassign/{external_id}', 'ItemsController@updateAssign');
+    });
+    Route::resource('items', 'ItemsController');
+    Route::get('document/{external_id}', 'DocumentsController@view')->name('document.view');
+    Route::get('document/download/{external_id}', 'DocumentsController@download')->name('document.download');
+    Route::resource('documents', 'DocumentsController');
+
+    /**
      * Tasks
      */
     Route::group(['prefix' => 'tasks'], function () {
