@@ -1,7 +1,12 @@
-<!DOCTYPE HTML>
-<html>
+<!DOCTYPE html>
+<html lang="pt-BR">
 <head>
-  <title>DaybydayCRM</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="shortcut icon" href="{{{ asset('images/favicon.png') }}}">
+  <title>Smart Driving Labs - CRM</title>
   <link rel="stylesheet" href="{{ asset(elixir('css/vendor.css')) }}">
   <link rel="stylesheet" href="{{ asset(elixir('css/app.css')) }}">
   <link href="{{ URL::asset('css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
