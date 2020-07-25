@@ -49,7 +49,7 @@ class ItemsController extends Controller
         //Connectedcar
         if ($request->package_type == "connectedcar")
         {
-            return 2;
+            return 3;
         }
     }
 }
