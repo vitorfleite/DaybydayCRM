@@ -28,11 +28,28 @@ use App\Models\Contact;
 
 class ItemsController extends Controller
 {
-    public function create($client_external_id = null)
+    public function create()
     {
-        $client =  Client::whereExternalId($client_external_id);
+        $clients =  \App\Models\Client::all('id','company_name');
 
-        return view('items.create')
-        ->withClient($client ?: null);
+        return view('items.create', compact('clients'));
+    }
+    public function store(Request $request)
+    {
+        //Package
+        if ($request->package_type == "package")
+        {
+            return 0;
+        }
+        //Simcard
+        if ($request->package_type == "simcard")
+        {
+            return 1;
+        }
+        //Connectedcar
+        if ($request->package_type == "connectedcar")
+        {
+            return 2;
+        }
     }
 }
