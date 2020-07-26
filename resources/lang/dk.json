@@ -522,7 +522,7 @@
   "You need to confirm your account. We have sent you an activation link, please check your email": "Du skal bekræfte din konto. Vi har sendt dig en bekræftigelses-mail med aktiveringslink. Venligst tjek din mail",
   "User not found": "Usuário não achado",
   "Create new appointment": "Criar novo compromisso",
-  "Sick leave": "Syg",
+  "Sick leave": "Atestado médico",
   "Personal leave": "Personlige årsager",
   "Vacation day": "Feriedag",
   "Time off": "Fri",
@@ -534,5 +534,6 @@
   "When does the absence start?": "Quando começa o afastamento?",
   "How long will the absence be for?": "Quanto tempo durará o afastamento?",
   "Do you have a medical certificate?": "Você possuí um atestado médico?",
-  "Additional comments": "Comentários adicionais"
+  "Additional comments": "Comentários adicionais",
+  "Package successfully added": "Dispositivo adicionado com sucesso"
 }

@@ -77,6 +77,12 @@ class Client extends Model
             ->orderBy('created_at', 'desc');
     }
 
+    public function packages()
+    {
+        return $this->hasMany(Package::class, 'client_id', 'id')
+            ->orderBy('created_at', 'desc');
+    }
+
     public function documents()
     {
         return $this->morphMany(Document::class, 'source');

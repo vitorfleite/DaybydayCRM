@@ -16,6 +16,12 @@ class CreatePackagesTable extends Migration
         Schema::create('packages', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->timestamps();
+
+            $table->string('package_number');
+            $table->string('package_status');
+            $table->string('package_imei');
+            $table->text('package_comments');
+            $table->string('package_client');
         });
     }
 

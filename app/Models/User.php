@@ -65,6 +65,11 @@ class User extends Authenticatable
         return $this->hasMany(Task::class, 'user_assigned_id', 'id');
     }
 
+    public function packages()
+    {
+        return $this->hasMany(Package::class, 'user_assigned_id', 'id');
+    }
+
     public function leads()
     {
         return $this->hasMany(Lead::class, 'user_assigned_id', 'id');
