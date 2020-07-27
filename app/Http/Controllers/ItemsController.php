@@ -7,6 +7,8 @@ use App\Models\Invoice;
 use App\Models\Status;
 use App\Models\Client;
 use App\Models\Package;
+use App\Models\Simcard;
+use App\Models\ConnectedCar;
 use App\Repositories\FilesystemIntegration\FilesystemIntegration;
 use App\Repositories\Money\MoneyConverter;
 use App\Services\ClientNumber\ClientNumberService;
@@ -48,7 +50,7 @@ class ItemsController extends Controller
         if ($request->package_type == "package")
         {
 
-            $package = Package::create(
+            $item = Package::create(
                 [
                     'package_number' => $request->package_number,
                     'package_status' => $request->package_status,
@@ -58,22 +60,75 @@ class ItemsController extends Controller
                 ]
             );
 
-            Session()->flash('flash_message', __('Package successfully added'));
+            Session()->flash('flash_message', __('Item successfully added'));
     
-            event(new \App\Events\ItemAction($package, self::CREATED));
-            Session()->flash('flash_message', __('Package successfully added'));
+            event(new \App\Events\ItemAction($item, self::CREATED));
+            Session()->flash('flash_message', __('Item successfully added'));
 
             return view('items.create', compact('clients'));
         }
         //Simcard
         if ($request->package_type == "simcard")
         {
-            return $request;
+            
+            $item = Simcard::create(
+                [
+                    'simcard_number' => $request->simcard_number,
+                    'simcard_status' => $request->simcard_status,
+                    'simcard_origin' => $request->simcard_origin,
+                    'simcard_operator' => $request->simcard_operator,
+                    'simcard_comments' => $request->simcard_comments,
+                    'simcard_client' => $request->simcard_client
+                ]
+            );
+
+            Session()->flash('flash_message', __('Item successfully added'));
+    
+            event(new \App\Events\ItemAction($item, self::CREATED));
+            Session()->flash('flash_message', __('Item successfully added'));
+
+            return view('items.create', compact('clients'));
         }
         //Connectedcar
         if ($request->package_type == "connectedcar")
         {
-            return $request;
+            $item = ConnectedCar::create(
+                [
+                    'connectedcar_name' => $request->connectedcar_name,
+                    'connectedcar_model' => $request->connectedcar_model,
+                    'connectedcar_color' => $request->connectedcar_color,
+                    'connectedcar_vin' => $request->connectedcar_vin,
+                    'connectedcar_year' => $request->connectedcar_year,
+                    'connectedcar_plate' => $request->connectedcar_plate,
+                    'connectedcar_comments' => $request->connectedcar_comments,
+                    'connectedcar_client' => $request->connectedcar_client
+                ]
+            );
+
+            Session()->flash('flash_message', __('Item successfully added'));
+    
+            event(new \App\Events\ItemAction($item, self::CREATED));
+            Session()->flash('flash_message', __('Item successfully added'));
+
+            return view('items.create', compact('clients'));
         }
     }
+
+    public function show(Request $request, $external_id)
+    {
+        $task = $this->findByExternalId($external_id);
+        if (!$task) {
+            abort(404);
+        }
+        return view('tasks.show')
+            ->withTasks($task)
+            ->withUsers(User::with(['department'])->get()->pluck('nameAndDepartmentEagerLoading', 'id'))
+            ->with('invoice_lines', $this->getInvoiceLines($external_id))
+            ->with('company_name', Setting::first()->company)
+            ->withStatuses(Status::typeOfTask()->pluck('title', 'id'))
+            ->withProjects($task->client->projects()->pluck('title', 'external_id'))
+            ->withFiles($task->documents)
+            ->with('filesystem_integration', Integration::whereApiType('file')->first());
+    }
+
 }

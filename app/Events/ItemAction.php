@@ -9,18 +9,22 @@ use Illuminate\Broadcasting\PresenceChannel;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use App\Models\Package;
+use App\Models\Simcard;
+use App\Models\ConnectedCar;
 
 class ItemAction
 {
-    private $package;
+    private $item;
     private $action;
 
     use InteractsWithSockets, SerializesModels;
 
-    public function getPackage()
+    public function getItem()
     {
-        return $this->package;
+        return $this->item;
     }
+
+
     public function getAction()
     {
         return $this->action;
@@ -32,9 +36,9 @@ class ItemAction
      * @param Lead $lead
      * @param $action
      */
-    public function __construct(Package $package, $action)
+    public function __construct($item, $action)
     {
-        $this->package = $package;
+        $this->item = $item;
         $this->action = $action;
     }
 

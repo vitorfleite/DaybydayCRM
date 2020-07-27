@@ -138,7 +138,7 @@
                     <input type="text" name="connectedcar_comments" id="connectedcar_comments" class="form-control">
                 </div>
                 <div class="form-group">
-                    <label for="connectedcar_comments" class="control-label thin-weight">{{ __('Assigned to') }}:</label>
+                    <label for="connectedcar_client" class="control-label thin-weight">{{ __('Assigned to') }}:</label>
                     <select name="connectedcar_client" class="form-control" id="connectedcar_client">
                     @foreach($clients as $client)
                         <option value="{{$client->company_name}}">{{$client->company_name}}</option>
