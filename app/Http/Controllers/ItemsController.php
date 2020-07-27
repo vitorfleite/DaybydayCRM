@@ -2,6 +2,9 @@
 namespace App\Http\Controllers;
 
 use App\Enums\InvoiceStatus;
+use App\Models\User;
+use App\Models\Integration;
+use App\Models\Industry;
 use App\Models\Contact;
 use App\Models\Invoice;
 use App\Models\Status;
@@ -24,9 +27,7 @@ use Illuminate\Http\Request;
 use App\Models\Setting;
 use App\Http\Requests\Client\StoreClientRequest;
 use App\Http\Requests\Client\UpdateClientRequest;
-use App\Models\User;
-use App\Models\Integration;
-use App\Models\Industry;
+
 use Ramsey\Uuid\Uuid;
 
 class ItemsController extends Controller
@@ -37,12 +38,20 @@ class ItemsController extends Controller
     const UPDATED_DEADLINE = 'updated_deadline';
     const UPDATED_ASSIGN = 'updated_assign';
 
+    public function index()
+    {
+        $clients =  \App\Models\Client::all('id','company_name');
+
+        return view('items.create', compact('clients'));
+    }
+    
     public function create()
     {
         $clients =  \App\Models\Client::all('id','company_name');
 
         return view('items.create', compact('clients'));
     }
+    
     public function store(Request $request)
     {
         $clients =  \App\Models\Client::all('id','company_name');
@@ -114,21 +123,6 @@ class ItemsController extends Controller
         }
     }
 
-    public function show(Request $request, $external_id)
-    {
-        $task = $this->findByExternalId($external_id);
-        if (!$task) {
-            abort(404);
-        }
-        return view('tasks.show')
-            ->withTasks($task)
-            ->withUsers(User::with(['department'])->get()->pluck('nameAndDepartmentEagerLoading', 'id'))
-            ->with('invoice_lines', $this->getInvoiceLines($external_id))
-            ->with('company_name', Setting::first()->company)
-            ->withStatuses(Status::typeOfTask()->pluck('title', 'id'))
-            ->withProjects($task->client->projects()->pluck('title', 'external_id'))
-            ->withFiles($task->documents)
-            ->with('filesystem_integration', Integration::whereApiType('file')->first());
-    }
+
 
 }

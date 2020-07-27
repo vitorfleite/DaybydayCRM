@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <title>Smart Driving Labs - CRM</title>
@@ -124,10 +124,10 @@
                         class="fa fa-folder-o sidebar-icon"></i><span id="menu-txt">{{ __('Inventory Control') }}</span>
                 <i class="icon ion-md-arrow-dropup arrow-side sidebar-arrow"></i></a>
             <div class="collapse" id="inventory">
-                <a href="{{ route('leads.unqualified')}}" class="list-group-item childlist"> <i
+                <a href="{{ route('items.index') }}" class="list-group-item childlist"> <i
                             class="bullet-point"><span></span></i> {{ __('All Inventory') }}</a>
                 @if(Entrust::can('lead-create'))
-                    <a href="{{ route('items.create')}}"
+                    <a href="{{ route('items.create') }}"
                        class="list-group-item childlist"> <i class="bullet-point"><span></span></i> {{ __('New Item') }}
                     </a>
                 @endif
