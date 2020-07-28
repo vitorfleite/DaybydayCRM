@@ -100,7 +100,7 @@ class ProjectsController extends Controller
         }
 
         //Hack to make dropzone js work, as it only called with AJAX and not form submit
-        return response()->json(['project_external_id' => $project->external_id]);
+        return response()->json(['project_external_id' => 'crm/'.$project->external_id]);
     }
 
     private function upload($image, $project)

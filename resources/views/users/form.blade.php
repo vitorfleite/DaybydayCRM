@@ -16,7 +16,7 @@
 <div class="col-sm-9">
     <div class="form-group form-inline col-sm-8">
         <div class="input-group ">
-            <img src="{{isset($user) ? optional($user)->avatar : '/images/default_avatar.jpg'}}" style="max-height: 40px; border-radius: 25px;">
+            <img src="{{isset($user) ? optional($user)->avatar : url('/images/default_avatar.jpg')}}" style="max-height: 40px; border-radius: 25px;">
         </div>
         <div class="input-group" style="margin-left: 0.7em;">
             <input type="file" name="image_path">

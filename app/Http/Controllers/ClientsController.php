@@ -238,6 +238,8 @@ class ClientsController extends Controller
 
         Session()->flash('flash_message', __('Client successfully added'));
         event(new \App\Events\ClientAction($client, self::CREATED));
+
+        
         return redirect()->route('clients.index');
     }
 
