@@ -30,11 +30,13 @@
                 language: {
                     url: '{{ asset('lang/' . (in_array(\Lang::locale(), ['dk', 'en']) ? \Lang::locale() : 'en') . '/datatable.json') }}'
                 },
+                name:'search',
                 drawCallback: function () {
                     var length_select = $(".dataTables_length");
                     var select = $(".dataTables_length").find("select");
                     select.addClass("tablet__select");
                 },
+                
                 columns: [
                     {data: 'titlelink', name: 'title'},
                     {data: 'user_created_id', name: 'user_created_id'},

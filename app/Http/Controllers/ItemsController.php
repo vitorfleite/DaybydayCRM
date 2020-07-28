@@ -41,8 +41,9 @@ class ItemsController extends Controller
     public function index()
     {
         $clients =  \App\Models\Client::all('id','company_name');
+        $packages = \App\Models\Package::all();
 
-        return view('items.create', compact('clients'));
+        return view('items.index', compact('clients'));
     }
     
     public function create()
@@ -122,7 +123,12 @@ class ItemsController extends Controller
             return view('items.create', compact('clients'));
         }
     }
+    public function anyData()
+    {
+        
 
-
-
+        $packages = Package::select(['package_number', 'package_status', 'package_imei', 'package_comments']);
+        
+        return Datatables::of($packages)->make(true);
+    }
 }

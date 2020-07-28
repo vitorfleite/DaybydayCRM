@@ -66,11 +66,11 @@ class ClientsController extends Controller
                 return '<a href="/clients/' . $clients->external_id . '" ">' . $clients->company_name . '</a>';
             })
             ->addColumn('view', '
-                <a href="{{ route(\'clients.show\', $external_id) }}" class="btn btn-link" >'  . __('View') . '</a>')
+                <a href="" class="btn btn-link" >'  . __('View') . '</a>')
             ->addColumn('edit', '
-                <a href="{{ route(\'clients.edit\', $external_id) }}" class="btn btn-link" >'  . __('Edit') . '</a>')
+                <a href="" class="btn btn-link" >'  . __('Edit') . '</a>')
             ->addColumn('delete', '
-                <form action="{{ route(\'clients.destroy\', $external_id) }}" method="POST">
+                <form action="" method="POST">
             <input type="hidden" name="_method" value="DELETE">
             <input type="submit" name="submit" value="' . __('Delete') . '" class="btn btn-link" onClick="return confirm(\'Are you sure? All the clients tasks, leads, projects, etc will be deleted as well\')"">
             {{csrf_field()}}

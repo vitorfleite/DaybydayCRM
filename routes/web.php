@@ -66,6 +66,9 @@ Route::group(['middleware' => ['auth']], function () {
     /**
      * Inventory Manager
      */
+    Route::group(['prefix' => 'items'], function () {
+        Route::get('/data', 'ItemsController@anyData')->name('items.data');
+    });
     Route::resource('items', 'ItemsController');
     /**
      * Tasks
