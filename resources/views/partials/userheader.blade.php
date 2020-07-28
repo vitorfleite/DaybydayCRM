@@ -9,7 +9,7 @@
                 "></i></a>
             @endif
             <div class="col-sm-2">
-                <div class="profilepic"><img class="profilepicsize" src="{{url $contact->avatar }}"/></div>
+                <div class="profilepic"><img class="profilepicsize" src="{{ url($contact->avatar) }}"/></div>
             </div>
             <div class="col-sm-8">
             <?php isset($changeUser) ?: $changeUser = false ?>
