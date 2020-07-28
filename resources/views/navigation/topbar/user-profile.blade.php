@@ -4,13 +4,13 @@
             <a href="#" class="dropdown-toggle topbar-user__head" data-toggle="dropdown">
                 <span>@lang('Hi'),</span>
                 <span class="topbar-user__name">{{ auth()->user()->name }}</span>
-                <img src="{{ auth()->user()->avatar }}" class="topbar-user__image">
+                <img src="{{url (auth()->user()->avatar) }}" class="topbar-user__image">
             </a>
             <ul class="dropdown-menu topbar-user__dropdown-menu">
                 <div class="topbar-user__content-header">
                     <div class="topbar-user__card-wrapper">
                         <div class="topbar-user__card-image-wrapper">
-                            <img src="{{ auth()->user()->avatar }}" class="topbar-user__card-image">
+                            <img src="{{url (auth()->user()->avatar) }}" class="topbar-user__card-image">
                         </div>
                         <div class="topbar-user__card-details">
                             <div class="topbar-user__card__name">
