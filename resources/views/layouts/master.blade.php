@@ -10,20 +10,15 @@
     <link href="{{ URL::asset('css/fonts/flaticon.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ URL::asset('css/bootstrap-tour-standalone.min.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ URL::asset('css/picker.classic.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ URL::asset('css/summernote.css') }}" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="https://unpkg.com/vis-timeline@7.3.4/styles/vis-timeline-graph2d.min.css">
     <link rel="stylesheet" href="{{ asset(elixir('css/vendor.css')) }}">
     <link rel="stylesheet" href="{{ asset(elixir('css/app.css')) }}">
     <link href="https://unpkg.com/ionicons@4.5.5/dist/css/ionicons.min.css" rel="stylesheet">
     <meta name="csrf-token" content="{{ csrf_token() }}"/>
     <link rel="stylesheet" href="{{ asset(elixir('css/bootstrap-select.min.css')) }}">
-    <link href="{{ URL::asset('css/summernote.css') }}" rel="stylesheet">
     <link rel="shortcut icon" href="{{{ asset('images/favicon.png') }}}">
-    <script>
-        var DayByDay =  {
-            csrfToken: "{{csrf_token()}}",
-            stripeKey: "{{config('services.stripe.key')}}"
-        }
-    </script>
+    
     <script src="https://js.stripe.com/v3/"></script>
     <style>
             .nav-tabs > li.active {
@@ -231,7 +226,7 @@
 <script>
     $(document).ready(function () {
         $.extend( $.fn.pickadate.defaults, {
-            monthsFull:  [ 'Janeiro', 'Fevereiro', 'Marco', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro' ];
+            monthsFull:  [ 'Janeiro', 'Fevereiro', 'Marco', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro' ],
             monthsShort: [ 'Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez' ],
             weekdaysFull: [ 'Domingo', 'Segunda-Feira', 'Terca-Feira', 'Quarta-Feira', 'Quinta-Feira', 'Sexta-Feira', 'Sabado' ],
             weekdaysShort: [ 'Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab' ],
