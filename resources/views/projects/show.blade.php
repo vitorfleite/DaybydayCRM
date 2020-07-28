@@ -68,7 +68,7 @@
                 @foreach($collaborators as $collaborator)
                 <li>
                      <a href="{{route('users.show', $collaborator->external_id)}}" >
-                        <img src="{{$collaborator->avatar}}" class="project-board-card-thumbnail-image" title="{{$collaborator->name}}"/>
+                        <img src="{{ url($collaborator->avatar) }}" class="project-board-card-thumbnail-image" title="{{$collaborator->name}}"/>
                     </a>
                 </li>
                 @endforeach
