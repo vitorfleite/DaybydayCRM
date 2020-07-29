@@ -16,7 +16,7 @@ import dynamictable from './components/DynamicTable.vue';
 import passportclients from './components/passport/Clients.vue';
 import passportauthorizedclients from './components/passport/AuthorizedClients.vue';
 import passportpersonalaccesstokens from './components/passport/PersonalAccessTokens.vue';
-import 'element-ui/lib/theme-default/index.css';
+import './element-ui/lib/theme-default/index.css';
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
