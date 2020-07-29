@@ -158,7 +158,8 @@ class TasksController extends Controller
 
         //Hack to make dropzone js work, as it only called with AJAX and not form submit
         return response()->json(['task_external_id' => $task->external_id, 'project_external_id' => $project ? $project->external_id : null]);
-        //return redirect()->route("tasks.show", $request, $insertedExternalId);
+        //return response()->json(['204bf931-e9dd-40af-a7ec-ce85be276820']);
+        //return redirect()->route("tasks.show", string($insertedExternalId));
     }
 
     private function upload($image, $task)
