@@ -207,6 +207,8 @@
 
     <!-- /#page-content-wrapper -->
 </div>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/element-ui/2.13.2/locale/pt-br.min.js"></script>
 <script type="text/javascript" src="{{ URL::asset('js/manifest.js') }}"></script>
 <script type="text/javascript" src="{{ URL::asset('js/vendor.js') }}"></script>
 <script type="text/javascript" src="{{ URL::asset('js/app.js') }}"></script>
