@@ -87,7 +87,6 @@ Route::group(['middleware' => ['auth']], function () {
         Route::post('/updateproject/{external_id}', 'TasksController@updateProject')->name('tasks.update.project');
     });
     Route::resource('tasks', 'TasksController');
-    Route::resources('/crm/tasks/{client_external_id}', 'TasksController@showcrm')->name('crm.tasks.show');
 
     /**
      * Leads

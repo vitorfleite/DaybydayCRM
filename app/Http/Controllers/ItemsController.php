@@ -130,5 +130,15 @@ class ItemsController extends Controller
         $packages = Package::select(['package_number', 'package_status', 'package_imei', 'package_comments']);
         
         return Datatables::of($packages)->make(true);
+
+        $SimCards = Simcard::select(['package_number', 'package_status', 'package_imei', 'package_comments']);
+
+        return Datatables::of($SimCards)->make(true);
+
+        $ConnectedCars = ConnectedCar::select(['package_number', 'package_status', 'package_imei', 'package_comments']);
+
+        return Datatables::of($ConnectedCars)->make(true);
+
+        
     }
 }
