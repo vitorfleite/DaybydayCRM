@@ -125,7 +125,7 @@ class ItemsController extends Controller
     }
     public function anyDataPackage()
     {
-        $items = Package::select(['package_number', 'package_status', 'package_imei', 'package_comments']);
+        $items = Package::select(['package_number', 'package_status', 'package_imei', 'package_client']);
 
         return Datatables::of($items)->make(true);
     }
@@ -140,6 +140,16 @@ class ItemsController extends Controller
         $items = ConnectedCar::select(['connectedcar_name', 'connectedcar_model', 'connectedcar_color','connectedcar_vin', 'connectedcar_year', 'connectedcar_plate', 'connectedcar_client']);
 
         return Datatables::of($items)->make(true);
+    }
+    public function show($external_id)
+    {
+        return view('users.show')
+            ->withUser($this->findByExternalId($external_id))
+            ->withCompanyname(Setting::first()->company)
+            ->with('task_statistics', $this->tasks->totalOpenAndClosedTasks($external_id))
+            ->with('lead_statistics', $this->leads->totalOpenAndClosedLeads($external_id))
+            ->with('lead_statuses', Status::typeOfLead()->get())
+            ->with('task_statuses', Status::typeOfTask()->get());
     }
 
 }

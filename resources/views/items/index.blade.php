@@ -27,7 +27,9 @@
                     <th>{{ __('Package number') }}</th>
                     <th>{{ __('Package status') }}</th>
                     <th>{{ __('IMEI') }}</th>
-                    <th>{{ __('Comments') }}</th>
+                    <th>{{ __('Assigned to') }}</th>
+                    <th class="action-header"></th>
+                    <th class="action-header"></th>
                 </tr>
             </thead>
         </table>                 
@@ -42,6 +44,8 @@
                     <th>{{ __('SIM card origin') }}</th>
                     <th>{{ __('SIM card operator') }}</th>
                     <th>{{ __('Assigned to') }}</th>
+                    <th class="action-header"></th>
+                    <th class="action-header"></th>
                 </tr>
             </thead>
         </table>  
@@ -57,6 +61,8 @@
                     <th >{{ __('Year of manufacture') }}</th>
                     <th>{{ __('Plate Number') }}</th>
                     <th>{{ __('Assigned to') }}</th>
+                    <th class="action-header"></th>
+                    <th class="action-header"></th>
                 </tr>
             </thead>
         </table> 
@@ -98,7 +104,7 @@
                 {data: 'package_number', name: 'package_number'},
                 {data: 'package_status', name: 'package_status'},
                 {data: 'package_imei', name: 'package_imei'},
-                {data: 'package_comments', name: 'package_comments'},
+                {data: 'package_client', name: 'package_client'},
             ]
         });
     });
@@ -123,6 +129,7 @@
                 {data: 'simcard_origin', name: 'simcard_origin'},
                 {data: 'simcard_operator', name: 'simcard_operator'},
                 {data: 'simcard_client', name: 'simcard_client'},
+                
             ]
         });
     });
@@ -149,58 +156,12 @@
                 {data: 'connectedcar_year', name: 'connectedcar_year'},
                 {data: 'connectedcar_plate', name: 'connectedcar_plate'},
                 {data: 'connectedcar_client', name: 'connectedcar_client'},
+                {data: 'view', name: 'view', orderable: false, searchable: false, class:'fit-action-delete-th table-actions'},
+                @if(Entrust::can('user-update'))
+                {data: 'edit', name: 'edit', orderable: false, searchable: false, class:'fit-action-delete-th table-actions'},
+                @endif
             ]
         });
-    });
-
-    $(document).ready(function () {
-        if(!getCookie("step_client_index")) {
-            var canCreateTask = '{{ auth()->user()->can('task-create') }}';
-            var canCreateProject = '{{ auth()->user()->can('project-create') }}';
-
-            $("#projects").addClass("in");
-            $("#tasks").addClass("in");
-            // Instance the tour
-            var tour = new Tour({
-                storage: false,
-                backdrop: true,
-            });
-            tour.addStep({
-                element: "#clients-table",
-                title: "{{trans("Client overview")}}",
-                content: "{{trans("All your active clients will be shown here")}}",
-                placement: 'top'
-            })
-            if(canCreateTask) {
-                tour.addStep( {
-                    element: "#newTask",
-                    title: "{{trans("Create task")}}",
-                    content: "{{trans("Same as with clients you can create a new task. Tasks has a primary user assigned, and a client, it can also be related to a project")}}"
-                })
-            }
-            if (canCreateProject) {
-                tour.addStep({
-                    element: "#newProject",
-                    title: "{{trans("Create project")}}",
-                    content: "{{trans("Projects are used to keep track of tasks that might be related to a bigger assignment for the client. And gives the possibility of multiple people working various tasks and keep track of the tasks.")}}",
-                })
-            }
-            // Initialize the tour
-            tour.init();
-
-            tour.start();
-            setCookie("step_client_index", true, 1000)
-        }
-        function setCookie(key, value, expiry) {
-            var expires = new Date();
-            expires.setTime(expires.getTime() + (expiry * 24 * 60 * 60 * 2000));
-            document.cookie = key + '=' + value + ';expires=' + expires.toUTCString();
-        }
-
-        function getCookie(key) {
-            var keyValue = document.cookie.match('(^|;) ?' + key + '=([^;]*)(;|$)');
-            return keyValue ? keyValue[2] : null;
-        }
     });
 </script>
 
