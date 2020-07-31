@@ -123,22 +123,23 @@ class ItemsController extends Controller
             return view('items.create', compact('clients'));
         }
     }
-    public function anyData()
+    public function anyDataPackage()
     {
-        
+        $items = Package::select(['package_number', 'package_status', 'package_imei', 'package_comments']);
 
-        $packages = Package::select(['package_number', 'package_status', 'package_imei', 'package_comments']);
-        
-        return Datatables::of($packages)->make(true);
-
-        $SimCards = Simcard::select(['package_number', 'package_status', 'package_imei', 'package_comments']);
-
-        return Datatables::of($SimCards)->make(true);
-
-        $ConnectedCars = ConnectedCar::select(['package_number', 'package_status', 'package_imei', 'package_comments']);
-
-        return Datatables::of($ConnectedCars)->make(true);
-
-        
+        return Datatables::of($items)->make(true);
     }
+    public function anyDataSimCard()
+    {
+        $items = Simcard::select(['simcard_number', 'simcard_status', 'simcard_origin', 'simcard_operator','simcard_client']);
+
+        return Datatables::of($items)->make(true);
+    }
+    public function anyDataConnectedCar()
+    {
+        $items = ConnectedCar::select(['connectedcar_name', 'connectedcar_model', 'connectedcar_color','connectedcar_vin', 'connectedcar_year', 'connectedcar_plate', 'connectedcar_client']);
+
+        return Datatables::of($items)->make(true);
+    }
+
 }
