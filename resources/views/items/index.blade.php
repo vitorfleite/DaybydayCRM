@@ -28,7 +28,7 @@
                     <th>{{ __('Package status') }}</th>
                     <th>{{ __('IMEI') }}</th>
                     <th>{{ __('Assigned to') }}</th>
-                    <th class="action-header"></th>
+                    <th class="action-header">1</th>
                     <th class="action-header"></th>
                 </tr>
             </thead>
