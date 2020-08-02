@@ -28,8 +28,6 @@
                     <th>{{ __('Package status') }}</th>
                     <th>{{ __('IMEI') }}</th>
                     <th>{{ __('Assigned to') }}</th>
-                    <th class="action-header">1</th>
-                    <th class="action-header"></th>
                 </tr>
             </thead>
         </table>                 
@@ -44,8 +42,6 @@
                     <th>{{ __('SIM card origin') }}</th>
                     <th>{{ __('SIM card operator') }}</th>
                     <th>{{ __('Assigned to') }}</th>
-                    <th class="action-header"></th>
-                    <th class="action-header"></th>
                 </tr>
             </thead>
         </table>  
@@ -61,8 +57,6 @@
                     <th >{{ __('Year of manufacture') }}</th>
                     <th>{{ __('Plate Number') }}</th>
                     <th>{{ __('Assigned to') }}</th>
-                    <th class="action-header"></th>
-                    <th class="action-header"></th>
                 </tr>
             </thead>
         </table> 
@@ -156,10 +150,6 @@
                 {data: 'connectedcar_year', name: 'connectedcar_year'},
                 {data: 'connectedcar_plate', name: 'connectedcar_plate'},
                 {data: 'connectedcar_client', name: 'connectedcar_client'},
-                {data: 'view', name: 'view', orderable: false, searchable: false, class:'fit-action-delete-th table-actions'},
-                @if(Entrust::can('user-update'))
-                {data: 'edit', name: 'edit', orderable: false, searchable: false, class:'fit-action-delete-th table-actions'},
-                @endif
             ]
         });
     });
