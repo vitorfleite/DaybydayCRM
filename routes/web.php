@@ -66,6 +66,7 @@ Route::group(['middleware' => ['auth']], function () {
     /**
      * Inventory Manager
      **/
+    Route::get('items/data/package', 'ItemsController@anyDataPackage')->name('items.data.package');
     Route::group(['prefix' => 'items'], function () {
         Route::get('/data/package', 'ItemsController@anyDataPackage')->name('items.data.package');
         Route::get('/data/simcard', 'ItemsController@anyDataSimCard')->name('items.data.simcard');
