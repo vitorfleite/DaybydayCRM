@@ -27,7 +27,7 @@
                     <th>{{ __('Package number') }}</th>
                     <th>{{ __('Package status') }}</th>
                     <th>{{ __('IMEI') }}</th>
-                    <th>{{ __('Assigned to') }}</th>
+                    <th>{{ __('Assigned to client') }}</th>
                 </tr>
             </thead>
         </table>                 
@@ -41,7 +41,7 @@
                     <th>{{ __('SIM card status') }}</th>
                     <th>{{ __('SIM card origin') }}</th>
                     <th>{{ __('SIM card operator') }}</th>
-                    <th>{{ __('Assigned to') }}</th>
+                    <th>{{ __('Assigned to the package') }}</th>
                 </tr>
             </thead>
         </table>  
@@ -56,7 +56,7 @@
                     <th>{{ __('VIN') }}</th>
                     <th >{{ __('Year of manufacture') }}</th>
                     <th>{{ __('Plate Number') }}</th>
-                    <th>{{ __('Assigned to') }}</th>
+                    <th>{{ __('Assigned to the package') }}</th>
                 </tr>
             </thead>
         </table> 
@@ -122,7 +122,7 @@
                 {data: 'simcard_status', name: 'simcard_status'},
                 {data: 'simcard_origin', name: 'simcard_origin'},
                 {data: 'simcard_operator', name: 'simcard_operator'},
-                {data: 'simcard_client', name: 'simcard_client'},
+                {data: 'simcard_package', name: 'simcard_package'},
                 
             ]
         });
@@ -149,7 +149,7 @@
                 {data: 'connectedcar_vin', name: 'connectedcar_vin'},
                 {data: 'connectedcar_year', name: 'connectedcar_year'},
                 {data: 'connectedcar_plate', name: 'connectedcar_plate'},
-                {data: 'connectedcar_client', name: 'connectedcar_client'},
+                {data: 'connectedcar_package', name: 'connectedcar_package'},
             ]
         });
     });

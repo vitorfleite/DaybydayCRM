@@ -22,7 +22,7 @@ class CreateSimcardsTable extends Migration
             $table->string('simcard_origin');
             $table->string('simcard_operator');
             $table->text('simcard_comments');
-            $table->string('simcard_client');
+            $table->string('simcard_package');
         });
     }
 
