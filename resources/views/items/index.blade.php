@@ -83,7 +83,10 @@
         $('#package-table').DataTable({
             processing: true,
             serverSide: true,
-            ajax: '{!! route('items.data.package') !!}',
+            headers: {
+               'X-CSRF-Token': '{{ csrf_token() }}',
+            },
+	    ajax: '{!! route('items.data.package') !!}',
             language: {
                 url: '{{ asset('lang/' . (in_array(\Lang::locale(), ['dk', 'en']) ? \Lang::locale() : 'en') . '/datatable.json') }}'
             },
@@ -106,7 +109,7 @@
         $('#simcard-table').DataTable({
             processing: true,
             serverSide: true,
-            ajax: '{!! route('items.data.simcard') !!}',
+            ajax: '{!! route('items.data.simcard') !!}',    
             language: {
                 url: '{{ asset('lang/' . (in_array(\Lang::locale(), ['dk', 'en']) ? \Lang::locale() : 'en') . '/datatable.json') }}'
             },
