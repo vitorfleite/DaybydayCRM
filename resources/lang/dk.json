@@ -198,6 +198,8 @@
   "Collaborators": "Colaboradores",
   "Overview": "Visão geral",
   "Client overview": "Visão geral do cliente",
+  "Assigned to the package": "Designado ao dispositivo",
+  "Assigned to client": "Designado ao cliente",
   "Attach invoice as PDF": "Vedhæft faktura som PDF",
   "All your active clients will be shown here": "Alle dine aktive klienter vil blive vist her",
   "Same as with clients you can create a new task. Tasks has a primary user assigned, and a client, it can also be related to a project": "Samme som ved klienten, kan du oprette nye opgaver. Opgaver har en primær bruger og en klient tildelt sig, og kan også blive relateret til et projekt",

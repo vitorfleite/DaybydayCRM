@@ -24,7 +24,7 @@ class CreateConnectedCarsTable extends Migration
             $table->string('connectedcar_year');
             $table->string('connectedcar_plate');
             $table->text('connectedcar_comments');
-            $table->string('connectedcar_client');
+            $table->string('connectedcar_package');
         });
     }
 

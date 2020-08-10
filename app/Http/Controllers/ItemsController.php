@@ -41,21 +41,23 @@ class ItemsController extends Controller
     public function index()
     {
         $clients =  \App\Models\Client::all('id','company_name');
-        $packages = \App\Models\Package::all();
+        $packages = \App\Models\Package::all('package_number');
 
-        return view('items.index', compact('clients'));
+        return view('items.index', compact(['clients','packages']));
     }
     
     public function create()
     {
         $clients =  \App\Models\Client::all('id','company_name');
+        $packages = \App\Models\Package::all('package_number');
 
-        return view('items.create', compact('clients'));
+        return view('items.create', compact(['clients','packages']));
     }
     
     public function store(Request $request)
     {
         $clients =  \App\Models\Client::all('id','company_name');
+        $packages = \App\Models\Package::all('package_number');
         //Package
         if ($request->package_type == "package")
         {
@@ -75,7 +77,7 @@ class ItemsController extends Controller
             event(new \App\Events\ItemAction($item, self::CREATED));
             Session()->flash('flash_message', __('Item successfully added'));
 
-            return view('items.create', compact('clients'));
+            return redirect()->route('items.create', compact(['clients','packages']));
         }
         //Simcard
         if ($request->package_type == "simcard")
@@ -88,7 +90,7 @@ class ItemsController extends Controller
                     'simcard_origin' => $request->simcard_origin,
                     'simcard_operator' => $request->simcard_operator,
                     'simcard_comments' => $request->simcard_comments,
-                    'simcard_client' => $request->simcard_client
+                    'simcard_package' => $request->simcard_package
                 ]
             );
 
@@ -97,7 +99,7 @@ class ItemsController extends Controller
             event(new \App\Events\ItemAction($item, self::CREATED));
             Session()->flash('flash_message', __('Item successfully added'));
 
-            return view('items.create', compact('clients'));
+            return redirect()->route('items.create', compact(['clients','packages']));
         }
         //Connectedcar
         if ($request->package_type == "connectedcar")
@@ -111,7 +113,7 @@ class ItemsController extends Controller
                     'connectedcar_year' => $request->connectedcar_year,
                     'connectedcar_plate' => $request->connectedcar_plate,
                     'connectedcar_comments' => $request->connectedcar_comments,
-                    'connectedcar_client' => $request->connectedcar_client
+                    'connectedcar_package' => $request->connectedcar_package
                 ]
             );
 
@@ -120,7 +122,7 @@ class ItemsController extends Controller
             event(new \App\Events\ItemAction($item, self::CREATED));
             Session()->flash('flash_message', __('Item successfully added'));
 
-            return view('items.create', compact('clients'));
+            return redirect()->route('items.create', compact(['clients','packages']));
         }
     }
     public function anyDataPackage()
@@ -131,25 +133,19 @@ class ItemsController extends Controller
     }
     public function anyDataSimCard()
     {
-        $items = Simcard::select(['simcard_number', 'simcard_status', 'simcard_origin', 'simcard_operator','simcard_client']);
+        $items = Simcard::select(['simcard_number', 'simcard_status', 'simcard_origin', 'simcard_operator','simcard_package']);
 
         return Datatables::of($items)->make(true);
     }
     public function anyDataConnectedCar()
     {
-        $items = ConnectedCar::select(['connectedcar_name', 'connectedcar_model', 'connectedcar_color','connectedcar_vin', 'connectedcar_year', 'connectedcar_plate', 'connectedcar_client']);
+        $items = ConnectedCar::select(['connectedcar_name', 'connectedcar_model', 'connectedcar_color','connectedcar_vin', 'connectedcar_year', 'connectedcar_plate', 'connectedcar_package']);
 
         return Datatables::of($items)->make(true);
     }
     public function show($external_id)
     {
-        return view('users.show')
-            ->withUser($this->findByExternalId($external_id))
-            ->withCompanyname(Setting::first()->company)
-            ->with('task_statistics', $this->tasks->totalOpenAndClosedTasks($external_id))
-            ->with('lead_statistics', $this->leads->totalOpenAndClosedLeads($external_id))
-            ->with('lead_statuses', Status::typeOfLead()->get())
-            ->with('task_statuses', Status::typeOfTask()->get());
+        return 0;
     }
 
 }

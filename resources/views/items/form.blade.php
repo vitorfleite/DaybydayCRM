@@ -42,7 +42,7 @@
                     <input type="text" name="package_comments" id="package_comments" class="form-control">
                 </div>
                 <div class="form-group">
-                    <label for="package_client" class="control-label thin-weight">{{ __('Assigned to') }}:</label>
+                    <label for="package_client" class="control-label thin-weight">{{ __('Assigned to client') }}:</label>
                     <select name="package_client" id="package_client" class="form-control">
                         @foreach($clients as $client)
                         <option value="{{$client->company_name}}">{{$client->company_name}}</option>
@@ -88,10 +88,10 @@
                     <input type="text" name="simcard_comments" id="simcard_comments" class="form-control">
                 </div>
                 <div class="form-group">                      
-                    <label for="package_client" class="control-label thin-weight">{{ __('Assigned to') }}:</label>
-                    <select name="simcard_client" class="form-control">
-                    @foreach($clients as $client)
-                        <option value="{{$client->company_name}}">{{$client->company_name}}</option>
+                    <label for="simcard_package" class="control-label thin-weight">{{ __('Assigned to the package') }}:</label>
+                    <select name="simcard_package" id="simcard_package" class="form-control">
+                    @foreach($packages as $package)
+                        <option value="{{$package->package_number}}">{{$package->package_number}}</option>
                     @endforeach
                     </select>
                 </div>
@@ -138,10 +138,10 @@
                     <input type="text" name="connectedcar_comments" id="connectedcar_comments" class="form-control">
                 </div>
                 <div class="form-group">
-                    <label for="connectedcar_client" class="control-label thin-weight">{{ __('Assigned to') }}:</label>
-                    <select name="connectedcar_client" class="form-control" id="connectedcar_client">
-                    @foreach($clients as $client)
-                        <option value="{{$client->company_name}}">{{$client->company_name}}</option>
+                    <label for="connectedcar_package" class="control-label thin-weight">{{ __('Assigned to the package') }}:</label>
+                    <select name="connectedcar_package" id="connectedcar_package" class="form-control" id="connectedcar_package">
+                    @foreach($packages as $package)
+                        <option value="{{$package->package_number}}">{{$package->package_number}}</option>
                     @endforeach
                     </select>
                 </div>
