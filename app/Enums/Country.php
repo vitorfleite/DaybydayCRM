@@ -97,9 +97,9 @@ class Country
             self::$values = [
                 "DK" => new Country("DK", [
                     "displayValue" => "Denmark",
-                    "currencyCode" => "DKK",
-                    "language" => "Danish",
-                    "phoneCode" => "+45",
+                    "currencyCode" => "BRL",
+                    "language" => "Português",
+                    "phoneCode" => "+55",
                     "format" => [
                         "frontendDate" => "dd/mm/yyyy",
                         "frontendTime" => "HH:i",

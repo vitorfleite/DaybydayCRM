@@ -59,7 +59,7 @@
                             <br>
                             <select class="form-control" name="language">
                                 <option value="EN">@lang("English")</option>
-                                <option value="DK" {{$settings->language == "DK" ? "selected" : ""}}>@lang("Danish")</option>
+                                <option value="DK" {{$settings->language == "DK" ? "selected" : ""}}>@lang("Português")</option>
                             </select>
                         </div>
                     </div>
